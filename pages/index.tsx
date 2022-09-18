@@ -11,78 +11,86 @@ import star2 from '../public/icons8-star-100 (2) 1.png'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div className='flex justify-center bg-gray-500'>
 
-   <div className='navigation'> 
-    <div className='navs'>
+    <div className='p-4 bg-white'> {/*this div wraps the card*/}
 
-    <div className='n1'>
-     <div className='nav back'>
-      <Image src={leftArrow} />
-    </div> 
-    </div>
-
-    <div className='n2'>
-    <div className='nav bag'>
-      <Image  src={shoppingBag} />
-    </div>
-    </div>
-
-
-    </div>  
-
-    </div>
-    <div className='product'>
-      <Image src={dude} alt='picture of some dude'/>
-    </div>
-    <div className='details'>
-      <p><span>US POLO ASSN </span> Men Black &#38; Grey</p>
-      <p className='jacket'>Jacket</p>
-      
-     <div className="price">
-      <p className='p1'>&#8377; 3999</p><p>&#8377; 4999</p> <p className='deal'>50 % off</p>
-      </div> 
-      <div className='ratings'>
-        <Image className='' src={star} />
-        <Image className='' src={star} />
-        <Image className='' src={star} />
-        <Image className='' src={star} />
-        <Image className='' src={star2} />
-      </div>
-    </div>
-
-    <div className='circles'>
-    <p>Colors</p>
-        <div className='colors'>
-          <div className='color c1'></div>
-          <div className='color c2'></div>
-          <div className='color c3'></div>
-          <div className='color c4'></div>
-          <div className='color c5'></div>
+      <div className='max-w-md'> {/*the back and bag icons */}
+        <div>
+          <Image src={leftArrow}/>
         </div>
+        <div>
+        <Image className='' src={shoppingBag}/>
+        </div>
+      </div>
 
-        <p>Sizes</p>
-      <div className='sizes'>
-        <div className='size s1'><p>XS</p></div>
-        <div className='size s2'><p>S</p></div>
-        <div className='size s3'><p>M</p></div>
-        <div className='size s4'><p>L</p></div>
-        <div className='size s5'><p>XL</p></div>
+      <div className='pb-3'>
+        <Image src={dude}/>
+      </div>
+
+    {/* the text part */}
+    <div>
+      <div className='flex space-x-1 pl-40'>
+        {/* placeholders */}
+        <div className='border-solid border-black-200 bg-slate-300 rounded w-2 h-2'></div> 
+        <div className='border-solid border-black-200 bg-slate-300 rounded w-2 h-2'></div>
+        <div className='border-solid border-black-200 bg-slate-600 rounded w-2 h-2'></div>
+      </div>
+
+      <div className='px-4'>
+      <div className='pr-2 '><span className='font-bold'>U.S. POLO ASSN</span> Men Black &#38; Grey</div>
+      <div >Jacket</div>
+      </div>
+
+      <div className='px-4' ><span className='text-gray-500'>	&#8377; <span className='line-through'>3999</span> </span> &#8377; 4999 <span className='pr-2 text-green-500'>50%</span></div>
+
+      <div className='px-4 flex'>
+        <div><Image src={star}/></div>
+        <div><Image src={star}/></div>
+        <div><Image src={star}/></div>
+        <div><Image src={star}/></div> 
+        <div><Image src={star2}/></div>
+      </div>
+
+      {/* colors; The colors are placeholders for now */}
+
+      <div className='grid-cols-5 space-x-2 px-3'>
+        <p className='block py-2 px-4 text-xl text-gray-500'>Colors</p>
+        <button className='border-solid border-white bg-[#FF9F69] rounded-3xl h-12 w-12 hover: hover:border-5 hover:shadow-md' ></button>
+        <button className='border-solid border-white bg-[#F387C8] rounded-3xl h-12 w-12'></button>
+        <button className='border-solid border-white bg-[#292D30] rounded-3xl h-12 w-12 '></button>
+        <button className='border-solid border-white bg-[#522CBF] rounded-3xl h-12 w-12'></button>
+        <button className='border-solid border-white bg-[#666268] rounded-3xl h-12 w-12 '></button>
+      </div>
+
+      {/* Sizes */}
+
+      <div className='grid-cols-5 space-x-2 px-3 pb-4'>
+        <p className='block py-2 px-4 text-xl text-gray-500'>Size</p>
+      <button className='border-solid border-black-200 bg-gray-400  rounded-3xl h-12 w-12'>XS</button>
+      <button className='border-solid border-black-200 bg-gray-400  rounded-3xl h-12 w-12'>S</button>
+      <button className='border-solid border-black-200 bg-gray-400  rounded-3xl h-12 w-12'>M</button>
+      <button className='border-solid border-black-200 bg-gray-400  rounded-3xl h-12 w-12'>L</button>
+      <button className='border-solid border-black-200 bg-gray-400  rounded-3xl h-12 w-12'>XL</button>
+      </div>
+
+    </div>
+
+    {/* button and like*/}
+
+    <div className='flex'>
+      <div>
+        <button  className='border-solid border-black-200 bg-[#8C7AE6] text-white rounded-lg h-7 '>Add to bag</button>
+      </div>
+      <div>
+        <Image src={heart}/>
       </div>
     </div>
-    <br />
-    <br />
 
-      <div className='bottom'>
 
-      <div className='buy'>
-        <button>Add to bag</button>
-        </div>  
-      <div className='like'>  
-        <Image src={heart} />
-      </div>
+
+
     </div>
-
     </div>
   )
 } 
