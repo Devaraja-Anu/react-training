@@ -15,16 +15,16 @@ const Home: NextPage = () => {
 
     <div className='p-4 bg-white'> {/*this div wraps the card*/}
 
-      <div className='max-w-md'> {/*the back and bag icons */}
-        <div>
+      <div className='absolute z-10 w-2/6 flex justify-between pt-10 px-6'> {/*the back and bag icons */}
+        <div className='rounded-3xl h-12 w-12  bg-[#F1F1F1] hover:shadow-xl flex justify-center items-center'>
           <Image src={leftArrow}/>
         </div>
-        <div>
+        <div className='rounded-3xl h-12 w-12  bg-[#F1F1F1] hover:shadow-xl flex justify-center items-center'>
         <Image className='' src={shoppingBag}/>
         </div>
       </div>
 
-      <div className='pb-3'>
+      <div className='pb-3 relative'>
         <Image src={dude}/>
       </div>
 
@@ -54,35 +54,35 @@ const Home: NextPage = () => {
 
       {/* colors; The colors are placeholders for now */}
 
-      <div className='grid-cols-5 space-x-2 px-3'>
+      <div className='grid-cols-5 space-x-4'>
         <p className='block py-2 px-4 text-xl text-gray-500'>Colors</p>
-        <button className='border-solid border-white bg-[#FF9F69] rounded-3xl h-12 w-12 hover: hover:border-5 hover:shadow-md' ></button>
-        <button className='border-solid border-white bg-[#F387C8] rounded-3xl h-12 w-12'></button>
-        <button className='border-solid border-white bg-[#292D30] rounded-3xl h-12 w-12 '></button>
-        <button className='border-solid border-white bg-[#522CBF] rounded-3xl h-12 w-12'></button>
-        <button className='border-solid border-white bg-[#666268] rounded-3xl h-12 w-12 '></button>
+        <button className='hover:border-4 border-white bg-[#FF9F69] rounded-3xl h-12 w-12 hover:shadow-xl'></button>
+        <button className='hover:border-4 border-white bg-[#F387C8] rounded-3xl h-12 w-12 hover:shadow-xl'></button>
+        <button className='hover:border-4 border-white bg-[#292D30] rounded-3xl h-12 w-12 hover:shadow-xl'></button>
+        <button className='hover:border-4 border-white bg-[#522CBF] rounded-3xl h-12 w-12 hover:shadow-xl'></button>
+        <button className='hover:border-4 border-white bg-[#666268] rounded-3xl h-12 w-12 hover:shadow-xl'></button>
       </div>
 
       {/* Sizes */}
 
-      <div className='grid-cols-5 space-x-2 px-3 pb-4'>
+      <div className='grid-cols-5 space-x-4 pb-4'>
         <p className='block py-2 px-4 text-xl text-gray-500'>Size</p>
-      <button className='border-solid border-black-200 bg-gray-400  rounded-3xl h-12 w-12'>XS</button>
-      <button className='border-solid border-black-200 bg-gray-400  rounded-3xl h-12 w-12'>S</button>
-      <button className='border-solid border-black-200 bg-gray-400  rounded-3xl h-12 w-12'>M</button>
-      <button className='border-solid border-black-200 bg-gray-400  rounded-3xl h-12 w-12'>L</button>
-      <button className='border-solid border-black-200 bg-gray-400  rounded-3xl h-12 w-12'>XL</button>
+      <button className='hover:border-4 border-white bg-[#F1F1F1]  rounded-3xl h-12 w-12  hover:shadow-xl'>XS</button>
+      <button className='hover:border-4 border-white bg-[#F1F1F1]  rounded-3xl h-12 w-12  hover:shadow-xl'>S</button>
+      <button className='hover:border-4 border-white bg-[#F1F1F1]  rounded-3xl h-12 w-12  hover:shadow-xl'>M</button>
+      <button className='hover:border-4 border-white bg-[#F1F1F1]  rounded-3xl h-12 w-12  hover:shadow-xl'>L</button>
+      <button className='hover:border-4 border-white bg-[#F1F1F1]  rounded-3xl h-12 w-12  hover:shadow-xl'>XL</button>
       </div>
 
     </div>
 
     {/* button and like*/}
 
-    <div className='flex'>
+    <div className='flex space-x-5 px-4 items-center'>
       <div>
-        <button  className='border-solid border-black-200 bg-[#8C7AE6] text-white rounded-lg h-7 '>Add to bag</button>
+        <button  className='border-solid border-black-200 bg-[#8C7AE6] text-white rounded-lg h-10 w-72 flex justify-center items-center'>Add to bag</button>
       </div>
-      <div>
+      <div className='rounded-3xl h-12 w-12 hover:shadow-xl flex justify-center items-center '>
         <Image src={heart}/>
       </div>
     </div>
