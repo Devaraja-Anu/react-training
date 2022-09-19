@@ -7,7 +7,7 @@ const signUp = ()  => {
         <div>
             <div className='grid md:grid-cols-2 h-screen' > 
 
-                <div className='bg-[#00C285] '>{/*Left side */}
+                <div className='bg-[#00C285] py-20 px-10'>{/*Left side */}
                 <Image src={studyGirl}/>
                 </div>
 

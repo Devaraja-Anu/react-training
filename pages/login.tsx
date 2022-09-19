@@ -7,8 +7,8 @@ const login = ()  => {
     return(
         <div>
             <div className='grid grid-row-2 md:grid-cols-2 md:h-screen ' >
-                <div className='bg-[#F4BA58] py-20 px-10 flex' >
-                <Image className='self-center' src={studyGirl}/>
+                <div className='bg-[#F4BA58] py-20 px-10' >
+                <Image src={studyGirl}/>
                 </div>
                 <div className='grid grid-rows-3  justify-around border-4 lg:m-32 md:m-16  '>
                     <h1 className='text-3xl p-5 self-end'>Login/Lookup</h1>
