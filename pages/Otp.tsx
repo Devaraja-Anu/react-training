@@ -10,7 +10,7 @@ const Otp = ()  => {
                     <Image src={scienceGirl}/>
                 </div>
                 {/* Left Side */}
-                <div className='flex flex-col justify-between'>
+                <div className='sm:flex sm:flex-col sm:justify-between'>
                     <CheckOTP/>
                 </div>
             </div>
