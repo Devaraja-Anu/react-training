@@ -4,8 +4,9 @@ import React from 'react'
 
 function LoginForm() {
   return (
-    <div className=' md:my-52'>
-        <div className=' border-2 rounded-xl border-black border-opacity-5 mx-32  '>
+  <div className='flex flex-col justify-center'>
+    <div className='flex justify-center '>
+        <div className=' border-2 rounded-xl border-black border-opacity-5 mx-32 my-16 w-11/12  '>
                 
                 <div className='mx-10'>
                     <h1 className='text-3xl pb-10 pt-8 font-base block text-center font-semibold '>Login/Lookup</h1>
@@ -19,7 +20,8 @@ function LoginForm() {
                 
                 </div>
             </div> 
-    </div>            
+    </div>
+  </div>              
   )
 }
 

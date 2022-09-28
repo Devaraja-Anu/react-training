@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Home: NextPage = () => {
   return (
-  <div className='bg-gradient-to-r from-blue-600 to-pink-600 h-full '> {/*Main div */}
+  <div className='bg-gradient-to-r from-blue-600 to-pink-600 h-screen '> {/*Main div */}
 
     <div>
       <h1 className='text-center text-6xl py-10 font-semibold '>WELCOME</h1>
@@ -69,7 +69,7 @@ const Home: NextPage = () => {
             <div className="sqbox">17</div>
           </Link>
           <Link href="">
-            <div className="sqbox mb-20">18</div>
+            <div className="sqbox">18</div>
           </Link>
 
 
