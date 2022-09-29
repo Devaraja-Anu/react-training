@@ -1,10 +1,14 @@
 import React from 'react'
 import OtpInput from 'react-otp-input'
 import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function CheckOTP() {
     const [otp,setOtp] =useState('');
+    const notify = () => toast(`OTP ${otp} Verified`);
+
    
   return (
   <div className='sm:flex sm:flex-col sm:justify-between'>
@@ -25,7 +29,19 @@ function CheckOTP() {
                 </div>
                 
                 <p className='font-osans font-bold py-4'>00:45</p>
-                <button className='font-base border-2 bg-[#00C285] text-white w-full h-14 rounded-lg'>login</button>
+                <button className='font-base border-2 bg-[#00C285] text-white w-full h-14 rounded-lg'
+                onClick={notify}>login</button>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  />
                 <div className='flex justify-center'>
                 <button className='font-base font-semibold py-8'>Resent OTP</button>
                 </div>
