@@ -1,5 +1,7 @@
 import Image from 'next/image'
-import studyGirl from 'file:///C:/work/react_training/public/casual-life-3d-young-woman-imagining-things-while-reading-e-book%201.png'
+// import studyGirl from 'casual-life-3d-young-woman-imagining-things-while-reading-e-book%201.png'
+import studyGirl from '../../../public/read-book.png'
+
 
 const SignupRight = ()=>{
 return (

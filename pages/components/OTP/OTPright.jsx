@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import scienceGirl from 'file:///C:/work/react_training/public/casual-life-3d-girl-studying-science-sitting-in-lotus-pose 1.png'
+import scienceGirl from '../../../public/scienceGirl.png'
 
 
 export const OTPright = () => {
