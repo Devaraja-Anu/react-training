@@ -4,7 +4,7 @@ import studyGirl from 'file:///C:/work/react_training/public/casual-life-3d-youn
 const SignupRight = ()=>{
 return (
     <div className='bg-[#00C285] flex flex-col justify-center pl-10'>{/*Left side */}
-                <Image  className='sm:object-contain' src={studyGirl}/>
+                <Image  className='sm:object-contain' src={studyGirl} alt='Girl studying'/>
                 </div>
 );
 }

@@ -15,17 +15,17 @@ const product = () => {
     <div>
       <div className=' absolute z-10 w-2/6 flex justify-between pt-10 px-6'> {/*the back and bag icons */}
         <div className='rounded-3xl h-12 w-12  bg-[#F1F1F1] hover:shadow-xl flex justify-center items-center'>
-          <Image src={leftArrow}/>
+          <Image src={leftArrow} alt='left arrow'/>
         </div>
         <div className='rounded-3xl h-12 w-12  bg-[#F1F1F1] hover:shadow-xl flex justify-center items-center'>
-        <Image className='' src={shoppingBag}/>
+        <Image className='' src={shoppingBag} alt='shopping bag'/>
         </div>
       </div>
     </div>
 
 
       <div className='pb-3 relative'>
-        <Image src={dude}/>
+        <Image src={dude} alt='a dude modelling clothes'/>
       </div>
 
     {/* the text part */}
@@ -45,11 +45,11 @@ const product = () => {
       <div className='px-4' ><span className='text-gray-500'>	&#8377; <span className='line-through'>3999</span> </span> &#8377; 4999 <span className='pr-2 text-green-500'>50%</span></div>
 
       <div className='px-4 flex'>
-        <div><Image src={star}/></div>
-        <div><Image src={star}/></div>
-        <div><Image src={star}/></div>
-        <div><Image src={star}/></div> 
-        <div><Image src={star2}/></div>
+        <div><Image src={star} alt='star'/></div>
+        <div><Image src={star} alt='star'/></div>
+        <div><Image src={star} alt='star'/></div>
+        <div><Image src={star} alt='star'/></div> 
+        <div><Image src={star2} alt='half a  star'/></div>
       </div>
 
       {/* colors; The colors are placeholders for now */}
@@ -83,7 +83,7 @@ const product = () => {
         <button  className='border-solid border-black-200 bg-[#8C7AE6] text-white rounded-lg h-10 w-72 flex justify-center items-center'>Add to bag</button>
       </div>
       <div className='rounded-3xl h-12 w-12 hover:shadow-xl flex justify-center items-center '>
-        <Image src={heart}/>
+        <Image src={heart} alt='heart'/>
       </div>
     </div>
 
