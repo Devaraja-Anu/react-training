@@ -5,7 +5,7 @@ import SignupRight from './components/Signup/SignupRight'
 const signUp = ()  => {
     return(
         <div>
-            <div className='grid md:grid-cols-2 h-screen' > 
+            <div className='grid grid-row-2 md:grid-cols-2 h-screen ' > 
                 <SignupRight/>
                 {/* the right side */}
                 <SignupForm />                       

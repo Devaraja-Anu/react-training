@@ -4,19 +4,17 @@ import React from 'react'
 
 function LoginForm() {
   return (
-  <div className='flex flex-col justify-center'>
-    <div className='flex justify-center '>
-        <div className=' border-2 rounded-xl border-black border-opacity-5 mx-32 my-16 w-11/12  '>
+  <div className='sm:flex sm:flex-col sm:justify-between'>
+    <div className='h-auto md:h-full sm:flex sm:justify-center sm:items-center bg-[#FAFFFD]'>
+        <div className='border-2 rounded-xl border-black border-opacity-5 px-4 my-16 lg:px-8 m-14  xl:m-20 sm:w-5/6 md:h-auto '>
                 
-                <div className='mx-10'>
+                <div>
                     <h1 className='text-3xl pb-10 pt-8 font-base block text-center font-semibold '>Login/Lookup</h1>
-
-                    <div >
+                    
                     <form action="post">
                     <input className='block border-2  border-[#B9B4B4] rounded-md  bg-[#F9F9F9] text-[#B9B4B4] h-14 p-5 mb-8 w-full ' type="text" name="phNo" id="phNo" placeholder='Phone number' required/>
                     <button className='block border-0  font-semibold rounded-xl w-full justify-center  h-14 text-white font-base bg-[#5500C2] mb-8' type="submit">Login</button>
                     </form>
-                    </div>
                 
                 </div>
             </div> 

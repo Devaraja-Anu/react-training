@@ -58,13 +58,3 @@ function CheckOTP() {
 }
 
 export default CheckOTP
-
-'w-12 h-12 mx-4 my-5 text-base rounded-sm border-solid border-gray-400'
-// {  
-//   width: '3rem',  
-//   height: '3rem',  
-//   margin: '20px 1rem',  
-//   fontSize: '1rem',  
-//   borderRadius: 4,  
-//   border: '2px solid rgba(0,0,0,0.3)',                      
-// }

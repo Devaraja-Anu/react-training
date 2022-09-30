@@ -7,4 +7,3 @@ return <div className='bg-[#F4BA58] flex flex-col justify-center pl-10' ><Image 
 
 export default LoginRight
 
-//py-52 flex pl-10

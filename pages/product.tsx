@@ -10,23 +10,21 @@ const product = () => {
   return (
     <div className='flex justify-center bg-gray-500'>
 
-    <div className='p-4 bg-white'> {/*this div wraps the card*/}
+    <div className='p-4 bg-white w-auto'> {/*this div wraps the card*/}
+   
+          <div className=' absolute z-10 flex space-x-64 pt-10 px-8'> {/*the back and bag icons*/}
+            <div className=' rounded-3xl h-12 w-12  bg-[#F1F1F1] hover:shadow-xl flex justify-center items-center'>
+              <Image src={leftArrow} alt='left arrow'/>
+            </div>
+            <div className='rounded-3xl h-12 w-12  bg-[#F1F1F1] hover:shadow-xl flex justify-center items-center'>
+            <Image className='' src={shoppingBag} alt='shopping bag'/>
+            </div>
+            </div>
 
-    <div>
-      <div className=' absolute z-10 w-2/6 flex justify-between pt-10 px-6'> {/*the back and bag icons */}
-        <div className='rounded-3xl h-12 w-12  bg-[#F1F1F1] hover:shadow-xl flex justify-center items-center'>
-          <Image src={leftArrow} alt='left arrow'/>
+
+        <div className='pb-3 relative'>
+          <Image src={dude} alt='a dude modelling clothes'/>
         </div>
-        <div className='rounded-3xl h-12 w-12  bg-[#F1F1F1] hover:shadow-xl flex justify-center items-center'>
-        <Image className='' src={shoppingBag} alt='shopping bag'/>
-        </div>
-      </div>
-    </div>
-
-
-      <div className='pb-3 relative'>
-        <Image src={dude} alt='a dude modelling clothes'/>
-      </div>
 
     {/* the text part */}
     <div>
@@ -93,3 +91,13 @@ const product = () => {
 } 
 
 export default product
+
+
+
+
+// <div className='pl-4'>
+// <div className='absolute z-10 border-2 border-purple-600 flex w-96 space-between space-x-10' >
+// <Image className='' src={leftArrow} alt='left Arrow'/>
+// <Image className='' src={shoppingBag} alt='shopping bag'/>
+// </div>
+// </div>
