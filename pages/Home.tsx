@@ -5,7 +5,7 @@ import Beaker from '../public/BeakerIcon.png'
 import PlantBeaker from '../public/PlantBeaker.png'
 import MathImage from '../public/MathIcon.png'
 import Logo from '../public/Logo.png'
-import Search from '../public/Search.png'
+import Search from '../public/search.png'
 import Bell from '../public/bell.png'
 import Pfp from '../public/pfp.png'
 import Plates from "./components/HomeComponents/CaroselPlate"
