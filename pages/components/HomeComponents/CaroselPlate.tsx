@@ -11,7 +11,7 @@ type PlateProps={
 
 const Plates = (props:PlateProps) => {
 return(
-    <div className="mt-20">
+    <div className="mt-6 sm:mt-20">
         <div className={`${props.background} mx-10 md:mx-20 rounded-3xl m-20"`}>
             <div className="flex py-4">
                 <div className="sm:flex flex-col justify-center items-center pl-10 md:pl-20">

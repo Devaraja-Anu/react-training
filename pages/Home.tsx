@@ -103,7 +103,7 @@ return(
             {/* Subject Buttons */}
             <div className="px-10 md:pl-20">
 
-                <h1 className="pb-10 pt-10 sm:pt-20 font-base font-semibold text-3xl md:text-4xl text-center sm:text-start">
+                <h1 className="pb-10 pt-6 sm:pt-20 font-base font-semibold text-3xl md:text-4xl text-center sm:text-start">
                     <span className="text-[#00C285]">Learn</span> with Video Classes</h1>
                 
                 <div> {/*Button Grid for subjects*/}

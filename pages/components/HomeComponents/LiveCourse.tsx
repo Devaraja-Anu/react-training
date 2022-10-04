@@ -18,10 +18,10 @@ return(
                         Aleena Sara
                     </div>
 
-                    <div className="border-b-2 border-[#FB773D] w-fit">    
-                        <p className="font-semibold text-white text-lg">B-tech-BITS Pailani</p>
+                    <div className="border-b-2 border-[#FB773D] w-fit ">    
+                        <p className="font-semibold text-white text-lg pl-4">B-tech-BITS Pailani</p>
                     </div>
-                        <p className="font-base text-xl font-semibold text-white sm:pb-6">Chemistry Expert</p>
+                        <p className="font-base text-xl font-semibold text-white pl-4 sm:pl-0 sm:pb-6">Chemistry Expert</p>
                     </div>
                 <div className="sm:absolute col-span-full bg-[#1A181D] opacity-60 z-10 w-full self-end">
                     <div className="">
@@ -33,7 +33,7 @@ return(
         <div className="bg-[#FAF5FE] h-fit w-auto rounded-b-xl"> {/*Bottom Half*/}
             <div className="border-b-2 sm:grid grid-cols-3 mx-4">
                 <div className="col-span-2">
-                    <p className="text-[#626262] sm:pt-2">Chemistry</p>
+                    <p className="text-[#626262] pt-5 sm:pt-2">Chemistry</p>
                     <p className="font-semibold font-base pt-2">Beginner&#39;s Guide: Biomolecules</p>
                     <p className="text-[#626262] py-2">37 min by Vaibhav Uppal</p>
                 </div>
