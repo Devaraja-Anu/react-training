@@ -27,12 +27,36 @@ const Purple = 'bg-gradient-to-t from-[#4A3AA7] to-[#9459D7]';
 
 
 return(
+    <div>
+
+<div className="drop-shadow h-28 border-2 w-full  flex  items-center justify-between  sm:hidden sm:items-end  "> {/*Top Nav */}
+                
+                
+                    <div className="sm:hidden flex m-4 object-contain" >
+                        <Image src={Logo} alt='Company Logo'/>
+                    </div>
+
+                    <button className="pr-8">
+                        <Image src={Search} alt="Search image"/>
+                    </button>                
+
+                    <button className="pr-8">
+                        <Image src={Bell} alt="Notification Image"/>
+                    </button>
+                    
+                    <button className="pr-8">
+                        <Image src={Pfp} alt='Profile Pic'/>
+                    </button>
+                
+            </div>
+
+
     <div className="sm:grid sm:grid-cols-10 grid-rows-none h-screen "> {/*The grid */}
         
         <div className="col-start-1 col-end-3 border-2 bg-[#00C285] ">{/*Sidebar (left Side) */}
             <div className="bg-[#00C285] pb-10">
-            <div className="flex justify-center pt-14 object-contain" >
-            <Image className="border-2 border-red-500" src={Logo} alt='Company Logo'/>
+            <div className="hidden sm:flex justify-center pt-14 px-4 object-contain" >
+            <Image src={Logo} alt='Company Logo'/>
             </div>
 
             <SideButton label="Home"/>
@@ -49,7 +73,7 @@ return(
         <div className=" col-span-8">  
 
                 {/*Top Nav bar */}
-            <div className="drop-shadow h-28 border-b-2 flex flex-col justify-center items-end "> {/*Top Nav */}
+            <div className="drop-shadow h-28 border-b-2 hidden sm:flex flex-col justify-center items-end  "> {/*Top Nav */}
                 
                 <div>
                     
@@ -79,7 +103,7 @@ return(
             {/* Subject Buttons */}
             <div className="px-10 md:pl-20">
 
-                <h1 className="pb-10 pt-20 font-base font-semibold text-4xl text-center sm:text-start">
+                <h1 className="pb-10 pt-10 sm:pt-20 font-base font-semibold text-3xl md:text-4xl text-center sm:text-start">
                     <span className="text-[#00C285]">Learn</span> with Video Classes</h1>
                 
                 <div> {/*Button Grid for subjects*/}
@@ -103,11 +127,11 @@ return(
             
             {/* Live Classes */}
 
-            <div className="pl-20">
-                <h1 className="pb-10 pt-20 font-base font-semibold text-4xl">
+            <div className="px-10 sm:pl-20">
+                <h1 className="pb-10 pt-10 sm:pt-20 font-base font-semibold text-3xl md:text-4xl text-center sm:text-start">
                     <span className="text-[#00C285]">Learn</span> with Live Classes</h1>
 
-                <div className="lg:flex justify-start gap-10">
+                <div className="lg:flex justify-center sm:justify-start sm:gap-10">
                     <LiveCourse/><LiveCourse/>
                 </div>                 
             </div>
@@ -116,6 +140,7 @@ return(
 
         </div>                
     </div>
+</div>
     );
 }
 
