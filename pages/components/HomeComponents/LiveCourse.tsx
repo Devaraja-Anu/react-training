@@ -33,11 +33,11 @@ return(
             <div className="border-b-2 grid grid-cols-3 mx-4">
                 <div className="col-span-2">
                     <p className="text-[#626262] pt-2">Chemistry</p>
-                    <p className="font-semibold font-base pt-2">Beginner's Guide Biomolecules</p>
+                    <p className="font-semibold font-base pt-2">Beginner&#39;s Guide: Biomolecules</p>
                     <p className="text-[#626262] pt-2">37 min by Vaibhav Uppal</p>
                 </div>
 
-                <div className=" justify-self-center self-center">
+                <div className="justify-self-center self-center">
                     <button className="bg-[#FB773D] rounded-2xl text-white font-base px-6 py-2 font-semibold">Join Us</button>
                 </div>
             </div>
