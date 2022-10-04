@@ -33,7 +33,7 @@ return(
             <div className="border-b-2 grid grid-cols-3 mx-4">
                 <div className="col-span-2">
                     <p className="text-[#626262] pt-2">Chemistry</p>
-                    <p className="font-semibold font-base pt-2">Beginner's Guide: Biomolecules</p>
+                    <p className="font-semibold font-base pt-2">Beginner's Guide Biomolecules</p>
                     <p className="text-[#626262] pt-2">37 min by Vaibhav Uppal</p>
                 </div>
 
