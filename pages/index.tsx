@@ -2,9 +2,9 @@ import type { NextPage } from 'next'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
-const Home: NextPage = () => {
+const Main: NextPage = () => {
   return (
-  <div className='bg-gradient-to-r from-blue-600 to-pink-600  h-screen pb-10 '> {/*Main div */}
+  <div className='bg-gradient-to-r from-blue-600 to-pink-600  min-h-screen sm:h-screen scr pb-10 '> {/*Main div */}
 
     <div>
       <h1 className='text-center text-6xl py-10 font-semibold '>WELCOME</h1>
@@ -28,8 +28,8 @@ const Home: NextPage = () => {
           <Link href="Otp">
         <button className='sqbox bg-gradient-to-br from-pink-500 to-purple-500 hover:from-purple-500  hover:to-pink-500'>Otp</button>
           </Link>
-          <Link href="">
-          <button className='sqbox bg-gradient-to-br  from-pink-600 to-blue-600'></button>
+          <Link href="Home">
+          <button className='sqbox bg-gradient-to-br  from-pink-600 to-blue-600'>Home</button>
           </Link>
           <Link href="">
           <button className='sqbox bg-gradient-to-br   from-pink-600 to-blue-600'></button>
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
           {/* <Link href="">
           <button className='sqbox'></button>
           </Link>
-          <Link href="">
+          {<Link href="">
           <button className='sqbox'></button>
           </Link>
           <Link href="">
@@ -78,4 +78,4 @@ const Home: NextPage = () => {
   )
 } 
 
-export default Home
+export default Main
