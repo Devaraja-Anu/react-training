@@ -16,6 +16,7 @@ import StandRead from '../public/StandRead.svg'
 import LiveCourse from './components/HomeComponents/LiveCourse'
 import SubjectButtons from "./components/HomeComponents/SubjectButtons"
 import SideButton from "./components/HomeComponents/Sidebarbutton"
+import Carosel from "./components/HomeComponents/Carosel"
 
 const Home = ()=> {
 
@@ -93,18 +94,15 @@ return(
 
             {/*Carosel */}
 
-
-            <div>
-             <Plates background="bg-[#F24C5C]" heading="Personalized Attention" bottomtext="Dedicated Teachers" image={StandRead} /> 
-            </div>
-
-            
+            <div className=" m-3 px-5 pt-6 sm:px-10 lg:pl-20 mb-0 md:mt-10">
+            <Carosel/>
+            </div>    
 
             {/* Subject Buttons */}
             <div className="px-10 md:pl-20">
 
-                <h1 className="pb-10 pt-6 sm:pt-20 font-base font-semibold text-3xl md:text-4xl text-center sm:text-start">
-                    <span className="text-[#00C285]">Learn</span> with Video Classes</h1>
+                <h1 className="pb-10 sm:pt-6 font-base font-semibold text-3xl md:text-4xl text-center sm:text-start">
+                    <span className="text-[#00C285]">Learn </span> with Video Classes</h1>
                 
                 <div> {/*Button Grid for subjects*/}
                     <div className=" grid grid-cols-2 justify-items-center sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-2 md:gap-x-5 gap-y-6 items-center md:pr-20 lg:pr-32 xl:pr-40">
@@ -128,7 +126,7 @@ return(
             {/* Live Classes */}
 
             <div className="px-10 sm:pl-20">
-                <h1 className="pb-10 pt-10 sm:pt-20 font-base font-semibold text-3xl md:text-4xl text-center sm:text-start">
+                <h1 className="pb-10 pt-10 font-base font-semibold text-3xl md:text-4xl text-center sm:text-start">
                     <span className="text-[#00C285]">Learn</span> with Live Classes</h1>
 
                 <div className="lg:flex justify-center sm:justify-start sm:gap-10">
