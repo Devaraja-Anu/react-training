@@ -1,15 +1,92 @@
 import React from 'react'
 import OtpInput from 'react-otp-input'
-import { useState } from 'react'
+import { useState} from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useForm, Controller,SubmitHandler  } from "react-hook-form";
+import axiosInstance from '../../../Axios/AxiosInstance'
+import {useRouter} from 'next/router'
+
+
+type OtpProps={
+  Otp:string,
+}
+
+const formdata = {
+  otp:8352,
+  client_id:6
+}
+
 
 
 function CheckOTP() {
+  interface OtpVaules{
+    otp:string
+  }
+
+  const [Loading,isLoading] = useState(false)
+  const[Error,setError] = useState(null)
+  const router = useRouter()
+
+
+  const { handleSubmit, control, reset } = useForm<OtpVaules>();
     const [otp,setOtp] =useState('');
+   
     const notify = () => toast(`OTP ${otp} Verified`);
 
-   
+    const onSubmit: SubmitHandler<OtpVaules> = async(data) => {
+
+      const formdata = {
+        otp:data.otp,
+        client_id:6
+      }
+      
+      const userId = localStorage.getItem("UserId")
+
+      try{
+        isLoading(true)
+      const response = await axiosInstance.post(`auth/verify-otp/${userId}`,formdata)
+      const email = response.data.user.email
+      email?router.push('/Signup'):router.push('/Home');
+
+      //'/Home' '/Signup'
+
+      isLoading(false)
+      }
+      catch(err:any){
+        isLoading(false)
+        console.log(err);
+        setError(err.response.data.error)
+        console.log(Error)
+      }
+
+
+    }
+
+    const resendOtp = async() => {
+
+      const mobile =  localStorage.getItem("mobile")
+      console.log(mobile)
+
+        const Logindata = {
+          mobile:mobile,
+          client_id:6,
+          device_id:'3d0cd218875efb07h',
+          device_type:'ios',
+          firebase_token:'vvvvvvv'
+          }
+      
+      try{  
+         await axiosInstance.post('/auth/login',Logindata)
+      }
+      catch(err:any){
+        setError(err.response.data.error)
+      }
+
+
+    }
+
+    
   return (
   <div className='sm:flex sm:flex-col sm:justify-between'>
     <div className='h-auto md:h-full sm:flex sm:justify-center sm:items-center bg-[#FAFFFD]'>
@@ -19,18 +96,22 @@ function CheckOTP() {
                 <h1 className='font-base font-semibold text-2xl sm:text-4xl pb-8 pt-6 md:pt-14'>Verify OTP</h1>
                 <p className='font-osans text-sm lg:text-base'>Enter OTP sent to the</p>
                 <p className='font-osans pb-4 text-sm lg:text-base'>Mobile number <span className='font-bold'>+91 91828202029</span></p>
-                {/* <input type="text" name="otp1" id="opt1" className="otpbox" /><input type="text" name="otp2" id="otp2" className="otpbox" /><input type="text" name="otp3" id="otp3" className="otpbox" /><input type="text" name="otp4" id="otp4" className="otpbox" /> */}
-                {/* <OtpInput value={otp} onChange={handle} numInputs={4} inputStyle='otpbox' separator={<span>-</span>}/> */}
-                
+
+                <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='pr-5'>
-                <OtpInput value={otp}
-                   inputStyle='otpbox'
-                onChange={(otp:string) => setOtp(otp)} numInputs={4} />
-                </div>
-                
+                  <Controller
+                    name = "otp"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => <OtpInput {...field} inputStyle='otpbox' numInputs={4} />}
+                  />
+              
                 <p className='font-osans font-bold py-4'>00:45</p>
-                <button className='font-base border-2 bg-[#00C285] text-white w-full h-14 rounded-lg'
-                onClick={notify}>login</button>
+                <button className='font-base border-2 bg-[#00C285] text-white w-full h-14 rounded-lg' disabled={Loading}
+                onClick={notify}  type='submit' >{`${Loading?`...Loading`:`Login`}`}</button>
+              
+              </div>
+              </form>
                 <ToastContainer
                   position="top-right"
                   autoClose={5000}
@@ -42,8 +123,11 @@ function CheckOTP() {
                   draggable
                   pauseOnHover
                   />
-                <div className='flex justify-center'>
-                <button className='font-base font-semibold py-8'>Resent OTP</button>
+                 
+                <div className='flex flex-col items-center justify-center'>
+                <p className='text-red-500 py-3'>{Error&&`Error: ${Error}`}</p>
+                <button onClick={resendOtp} className='font-base font-semibold py-5'>Resent OTP</button>
+                
                 </div>
               </div>
 
