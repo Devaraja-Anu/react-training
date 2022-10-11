@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useEffect } from "react";
 import { string, number, object } from "yup";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -11,7 +12,7 @@ type Inputs = {
   PhoneNumber: string;
   StudentName: string;
   StudentEmail: string;
-  Std:boolean,
+  default_segment_id:string,
 };
 
 const schemea = object({
@@ -43,13 +44,27 @@ function SignupForm() {
 
   const [error,setError]=useState('')
   const [loading,setLoading] =useState(false)
+  const [segment, setSegment] = useState<any>([])
 
 
+  useEffect(()=> {
+    const getSegment =  async()=>{
+    try{
+    const buttonData = await axiosInstance.get('/segments')
+    setSegment(buttonData.data)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+  getSegment()
+  },[])
 
   const onSubmit: SubmitHandler<Inputs> = async(data) => {
     try{
       setLoading(true)
-       await axiosInstance.post('/users')
+      console.log(data)
+       await axiosInstance.post('/users',data)
        router.push('/Home')
        setLoading(false)
 
@@ -110,45 +125,30 @@ function SignupForm() {
 
           <div className="space-y-2 sm:space-x-4 mx-2  sm:py-4">
             <ul className="grid gap-3  w-full md:grid-cols-2 lg:grid-cols-3 my-4 sm:my-0">
-              <li>
-                <input
-                  type="radio"
-                  id="hosting-1"
-                  {...register("Std")}
-                  className="hidden peer"
-                  value='Plus one'
-                />
-                <label
-                  htmlFor="hosting-1"
-                  className="flex justify-center items-center w-full text-gray-500 bg-white  focus:border-[#00C285] border-2 p-2 rounded-3xl cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-[#00C285] hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
-                >
-                  <div className="block ">
-                    <div className="font-base text-sm lg:text-lg ">
-                      Plus One
-                    </div>
-                  </div>
-                </label>
-              </li>
 
-              <li>
-                <input
-                  type="radio"
-                  id="hosting-2"
-                  {...register("Std")}
-                  className="hidden peer"
-                  value='Plus two'                  
-                />
-                <label
-                  htmlFor="hosting-2"
-                  className="flex justify-center items-center w-full text-gray-500 bg-white  focus:border-[#00C285] border-2 p-2 rounded-3xl cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-[#00C285] hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
-                >
-                  <div className="block ">
-                    <div className="font-base text-sm lg:text-lg ">
-                      Plus Two
-                    </div>
-                  </div>
-                </label>
-              </li>
+
+            {segment?.map((button:any) => {
+              return(
+                      <li key={button.id}>
+                        <input
+                          type="radio"
+                          id={`hosting-${button.id}`}
+                          {...register("default_segment_id")}
+                          className="hidden peer"
+                          value={button.id}
+                        />
+                        <label
+                          htmlFor={`hosting-${button.id}`}
+                          className="flex justify-center items-center w-full text-gray-500 bg-white  focus:border-[#00C285] border-2 p-2 rounded-3xl cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-[#00C285] hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                        >
+                          <div className="block ">
+                            <div className="font-base text-sm lg:text-lg ">
+                              {`${button.name}`}
+                            </div>
+                          </div>
+                        </label>
+                      </li>);
+              })}
             </ul>
           </div> 
 
@@ -183,7 +183,3 @@ function SignupForm() {
 
 export default SignupForm;
 
-{
-  /* <div className='flex justify-center md:py-24'>
-              <div className='h-screen flex flex-col s justify-center bg-[#FAFFFD]'></div> */
-}

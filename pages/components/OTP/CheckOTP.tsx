@@ -46,8 +46,11 @@ function CheckOTP() {
       try{
         isLoading(true)
       const response = await axiosInstance.post(`auth/verify-otp/${userId}`,formdata)
+      console.log(response);
+      const token =response.data.token.access_token
+      localStorage.setItem("token",token)
       const email = response.data.user.email
-      email?router.push('/Signup'):router.push('/Home');
+      email?router.push('/Home'):router.push('/Signup');
 
       //'/Home' '/Signup'
 
