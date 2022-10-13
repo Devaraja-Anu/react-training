@@ -6,6 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useForm, Controller,SubmitHandler  } from "react-hook-form";
 import axiosInstance from '../../../Axios/AxiosInstance'
 import {useRouter} from 'next/router'
+import {useMutation, useQuery } from 'react-query';
+import useOtpData from 'queries/OtpQuery';
 
 
 type OtpProps={
@@ -24,14 +26,18 @@ function CheckOTP() {
     otp:string
   }
 
-  const [Loading,isLoading] = useState(false)
-  const[Error,setError] = useState(null)
   const router = useRouter()
+
+  const{mutate,isLoading,isError,error} = useOtpData()
+
+
+  //const [Loading,isLoading] = useState(false)
+  //const[Error,setError] = useState(null)
+  
 
 
   const { handleSubmit, control, reset } = useForm<OtpVaules>();
     const [otp,setOtp] =useState('');
-   
     const notify = () => toast(`OTP ${otp} Verified`);
 
     const onSubmit: SubmitHandler<OtpVaules> = async(data) => {
@@ -41,27 +47,34 @@ function CheckOTP() {
         client_id:6
       }
       
-      const userId = localStorage.getItem("UserId")
 
-      try{
-        isLoading(true)
-      const response = await axiosInstance.post(`auth/verify-otp/${userId}`,formdata)
-      console.log(response);
-      const token =response.data.token.access_token
-      localStorage.setItem("token",token)
-      const email = response.data.user.email
-      email?router.push('/Home'):router.push('/Signup');
+      mutate(formdata,{
+          onSuccess(data){
+            const token =data.data.token.access_token
+            localStorage.setItem("token",token)
+            const email = data.data.user.email
+            email?router.push('/Home'):router.push('/Signup');
+          }
+      })
 
-      //'/Home' '/Signup'
+      // try{
+      //   isLoading(true)
+      // const response = await axiosInstance.post(`auth/verify-otp/${userId}`,formdata)
+      // const token =response.data.token.access_token
+      // localStorage.setItem("token",token)
+      // const email = response.data.user.email
+      // email?router.push('/Home'):router.push('/Signup');
 
-      isLoading(false)
-      }
-      catch(err:any){
-        isLoading(false)
-        console.log(err);
-        setError(err.response.data.error)
-        console.log(Error)
-      }
+      // //'/Home' '/Signup'
+
+      // isLoading(false)
+      // }
+      // catch(err:any){
+      //   isLoading(false)
+      //   console.log(err);
+      //   setError(err.response.data.error)
+      //   console.log(Error)
+      // }
 
 
     }
@@ -83,7 +96,7 @@ function CheckOTP() {
          await axiosInstance.post('/auth/login',Logindata)
       }
       catch(err:any){
-        setError(err.response.data.error)
+        console.log(err.response.data.error)
       }
 
 
@@ -110,8 +123,8 @@ function CheckOTP() {
                   />
               
                 <p className='font-osans font-bold py-4'>00:45</p>
-                <button className='font-base border-2 bg-[#00C285] text-white w-full h-14 rounded-lg' disabled={Loading}
-                onClick={notify}  type='submit' >{`${Loading?`...Loading`:`Login`}`}</button>
+                <button className='font-base border-2 bg-[#00C285] text-white w-full h-14 rounded-lg' disabled={isLoading}
+                onClick={notify}  type='submit' >{`${isLoading?`...Loading`:`Login`}`}</button>
               
               </div>
               </form>
@@ -128,7 +141,7 @@ function CheckOTP() {
                   />
                  
                 <div className='flex flex-col items-center justify-center'>
-                <p className='text-red-500 py-3'>{Error&&`Error: ${Error}`}</p>
+                <p className='text-red-500 py-3'>{isError&&`Error: ${error}`}</p>
                 <button onClick={resendOtp} className='font-base font-semibold py-5'>Resent OTP</button>
                 
                 </div>

@@ -6,7 +6,8 @@ import axiosInstance from '../../../Axios/AxiosInstance'
 import { string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {useRouter} from 'next/router'
-
+import {useMutation, useQuery } from 'react-query';
+import useAddLoginData from 'queries/LoginQuery'
 
 
 
@@ -28,9 +29,9 @@ const schemea = {
 
 function LoginForm() {
 
-  const [Loading,setLoading] = useState(false);
-  const [error,setError] =  useState(null);
   const router = useRouter()
+
+   const {mutate,isLoading,isError, error} = useAddLoginData()
 
   const {register,handleSubmit,watch,formState:{errors}}= useForm<Inputs>();
   const onSubmit:SubmitHandler<Inputs>= async data => {
@@ -42,27 +43,21 @@ function LoginForm() {
       device_type:'ios',
       firebase_token:'vvvvvvv'
       }
-      
-     
 
-        try{
-          setLoading(true)
-          const response = await axiosInstance.post('/auth/login',Logindata)
-          const UserId = response.data.user_id
-          console.log(UserId);
+      mutate(Logindata,{
+        onSuccess(data:any) {
+          const UserId = data.data.user_id
           localStorage.setItem("UserId",UserId );
-          localStorage.setItem("mobile",data.mobile)
+          localStorage.setItem("mobile",Logindata.mobile)
           router.push('/Otp')
-
-          setLoading(false)
-
-        } catch(error:any)  {
+        },
+        onError(error:any) {
+          console.log(error.response.data.message)
          
-          setError(error.response.data.message)
-          setLoading(false)
-          
-        }      
-         }
+        },
+      })
+   }
+         
 
   return (
   <div className='sm:flex sm:flex-col sm:justify-between'>
@@ -76,8 +71,8 @@ function LoginForm() {
                     <input {...register('mobile')} id="mobile" placeholder='Phone number' required  className='block border-2  border-[#B9B4B4] rounded-md  bg-[#F9F9F9] text-[#B9B4B4] h-14 p-5 mb-8 w-full '/>
                     <p className='font-base text-red-500 pb-5 pt-0'>{errors?.mobile?.message}</p>
 
-                    <button className='block border-0  font-semibold rounded-xl w-full justify-center  h-14 text-white font-base bg-[#5500C2] mb-8' type="submit" disabled={Loading}>{`${Loading?`...Loading`:`Login`}`}</button>
-                     <p className='text-red-500 font-base mb-4 text-center'>{error&&`Error: ${error}`}</p>
+                    <button className='block border-0  font-semibold rounded-xl w-full justify-center  h-14 text-white font-base bg-[#5500C2] mb-8' type="submit" disabled={isLoading}>{`${isLoading?`...Loading`:`Login`}`}</button>
+                     <p className='text-red-500 font-base mb-4 text-center'>{isError&&`Error: ${error}`}</p>
                     </form>
                 
                 </div>
@@ -88,3 +83,24 @@ function LoginForm() {
 }
 
 export default LoginForm
+
+
+        // try{
+        //   setLoading(true)
+        //   const response = await axiosInstance.post('/auth/login',Logindata)
+        //   const UserId = response.data.user_id
+        //   console.log(UserId);
+        //   localStorage.setItem("UserId",UserId );
+        //   localStorage.setItem("mobile",data.mobile)
+        //   router.push('/Otp')
+
+        //   setLoading(false)
+
+        // } catch(error:any)  {
+         
+        //   setError(error.response.data.message)
+        //   setLoading(false)
+          
+        // }  
+        
+        

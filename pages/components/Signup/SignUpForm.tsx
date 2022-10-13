@@ -6,6 +6,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axiosInstance from '../../../Axios/AxiosInstance'
 import Router, {useRouter} from 'next/router'
+import { ISegment } from "./type";
 
 
 type Inputs = {
@@ -44,13 +45,13 @@ function SignupForm() {
 
   const [error,setError]=useState('')
   const [loading,setLoading] =useState(false)
-  const [segment, setSegment] = useState<any>([])
+  const [segment, setSegment] = useState<ISegment[]>([])
 
 
   useEffect(()=> {
     const getSegment =  async()=>{
     try{
-    const buttonData = await axiosInstance.get('/segments')
+    const buttonData = await axiosInstance.get<ISegment[]>('/segments')
     setSegment(buttonData.data)
     }
     catch(err){
@@ -127,7 +128,7 @@ function SignupForm() {
             <ul className="grid gap-3  w-full md:grid-cols-2 lg:grid-cols-3 my-4 sm:my-0">
 
 
-            {segment?.map((button:any) => {
+            {segment?.map((button) => {
               return(
                       <li key={button.id}>
                         <input
